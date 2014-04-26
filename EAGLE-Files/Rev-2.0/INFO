@@ -1,0 +1,51 @@
+Project Name: Luminant Display
+Revision: 2.0
+Revision Date: 3/28/2014
+Original Engineer: JP Allport
+Additional Engineering: Beeta Modarressi and John Nolan
+Manufacturing and Assembly: Made in the USA
+
+This project was created using EAGLE CAD Pro.  If you have the nonprofessional version, you cannot view the design as the PCB board dimensions are unsupported.
+Gerber files will be provided shortly that was submitted to fabrication as a well as images of the project.
+
+This is an high density LED board where LED components have a spacing of 70 mils between each package.
+Due to the vast amount of components and the spacing, this board underwent automated assembly - it is not recommended to hand assemble the board.
+
+This board uses dual Teensy 3.1 microcontrollers to control all of the LEDs.  Pin 12 syncs both of them together. 
+While one single Teensy 3.1 is capable of controlling the entire display, two were used as it would increase the output frame rate and be able to hand more LEDs.
+
+Here are the specifications:
+Total number of LEDs (WS2812B): 1920
+Total number of capacitors (0805, 0.1 uF): 1920
+Board width (dimension X):  22.00 inch
+Board length (dimension Y): 9.95 inch
+SMDs on both sides: Yes
+Number of SMD pads on top: 7682
+Number of SMD pads on bottom: 3896
+Number of thru hole packages: 47
+Smallest hole size: 10 mil
+Smallest SMD pitch: 8 il
+
+Fabrication specification:
+Copper weight: 2.0 oz
+Board material: 370 HR
+Board thickness: 0.093 inch
+Soldermask color: White
+Silkscreen color: Black
+
+Additional notes:
+1) 100 Ohm 1206 SMD resistors are used on the 74HCT245 buffer to help with signal integrity from the output signals of the Teensy 3.1.
+2) Large filtering capacitors (3500 uF) have been added to the power input to reduce ripple and to prevent burning out of the LEDs during first power up.
+
+Known issues with Revision 2.0 and to be fixed in next revision:
+1) The tooling/mounting holes are not consistent in the X dimension
+2) Additional stitching GND vias need to be added to improve copper pour and GND plane response
+3) The name of the board needs to be changed from Lumia Display (Gerber files) to Luminant Display (fixed)
+4) Additional pin outs should be added to the Teensy 3.1 for user expandability
+5) +5V Dir connection needs to be removed (no longer needed) and routed directly to the 74HCT245 buffer
+6) Optional 0.1 uF to the 74HCT245 buffer silkscreening needs to be relabeled
+7) High frequency filtering capacitors on power input package needs to be increased
+
+
+Interested in supporting the project or buying one?
+Business inquiries: thematrixwriter@gmail.com
