@@ -5,5 +5,4 @@ A large format, ultra bright LED display using printed circuit board technology 
 
 LED Type: WS2812B
 
-Main engineer: JP Allport <br>
-Additional project engineering (Rev. 2.0): Beeta Modarressi, John Nolan, and Tian Zhang
+Designed and engineered by JP Allport <br>
