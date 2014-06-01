@@ -23,18 +23,22 @@
     
     
     
-    Enhancements and modifications made by Tian Zhang
+    
+    Enhancements and modifications made by Tian Zhang and JP Allport
     1) Added the ability to adjust display brightness
     2) Additional bug fixes
+    3) Configured compatibility for Luminant Display Rev 2.0
     
+    Notes:
     If using running on Windows OS it works on Processing 2.0.3, 2.1, and 2.1.2
     Other versions of Processing have issues with Java and GStreamer.
+    
     
 */
 
 // To configure this program, edit the following sections:
 //
-//  1: change myMovie to open a video file of your choice    ;-)
+//  1: change myMovie to open a video file of your choice    ;
 //
 //  2: edit the serialConfigure() lines in setup() for your
 //     serial device names (Mac, Linux) or COM ports (Windows)
@@ -46,16 +50,19 @@
 //  4: if playing 50 or 60 Hz progressive video (or faster),
 //     edit framerate in movieEvent().
 
+
 import processing.video.*;
 import processing.serial.*;
 import java.awt.Rectangle;
 
-//Location of content you want to display.  Must use forward slashes
+
+//Location of content you want to display.  Must use forward slashes, even in Windows
 Movie myMovie = new Movie(this, "C:/Users/JP/Desktop/Paris in Motion (Part 1).mp4");
+
 
 float gamma = 1.7;
 
-float brightness = 0.22;  //Adjust display brightness from 0 to 1.0
+float brightness = 0.15;  //Adjust display brightness from 0 to 1.0
 
 int numPorts=0;  // the number of serial ports in use
 int maxPorts=24; // maximum number of serial ports
@@ -73,14 +80,19 @@ void setup() {
   delay(20);
   println("Serial Ports List:");
   println(list);
+  
+  // COM Port Configuration
   serialConfigure("COM11");  // change these to your port names (if on Linux use: /dev/ ; otherwise Windows type COMxx in.)
   serialConfigure("COM12");
+  
+  
   if (errorCount > 0) exit();
   for (int i=0; i < 256; i++) {
     gammatable[i] = (int)(pow((float)i / 255.0, gamma) * 255.0 + 0.5);
   }
-  size(480, 400);  // create the window
-  myMovie.loop();  // start the movie :-)
+  
+  size(1280, 720);  // Creates the movie window, adjust size pertaining to resolution of video file
+  myMovie.loop();  // start the movie and loop when finished
 }
 
 
