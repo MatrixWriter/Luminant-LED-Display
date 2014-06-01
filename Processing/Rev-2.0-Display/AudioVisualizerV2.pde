@@ -2,11 +2,13 @@
     Original source code by: Benjamin Farahmand
     Link: https://gist.github.com/benfarahmand/6902359#file-audio-visualizer-atomic-sprocket
 
-    This program uses a microphone to provide stunning audio visualizations.
+    This program uses the computer's microphone to provide stunning audio visualizations that 
+    is compatible with Luminant Display
 
-    Enhancements and modifications made by Tian Zhang
+    Enhancements and modifications made by Tian Zhang and JP Allport
     1) Added the ability to adjust display brightness
-    2) Mapped out resolution to match Rev 2.0 Luminant Display
+    2) Made compatible with OctoWS2811 with Mapped out resolution to match Rev 2.0 Luminant Display
+    3) Code clean up
     
     Works on Processing 2.1.1+
     
@@ -110,7 +112,8 @@ void draw()
   }
   }
 }
- 
+
+//This is where the animation is drawn and can be configured here
 void doubleAtomicSprocket() {
   noStroke();
   pushMatrix();
@@ -156,6 +159,7 @@ void stop()
   super.stop();
 }
 
+// OctoWS2811 stuff
 // image2data converts an image to OctoWS2811's raw data format.
 // The number of vertical pixels in the image must be a multiple
 // of 8.  The data array must be the proper size for the image.
